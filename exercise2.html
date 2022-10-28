@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Badge Order Form</title>
+    <link rel="stylesheet" href="formStyles.css" />
+    <script defer src="badgeValidation.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="heading">
+        <h1>Badge Order Form</h1>
+      </div>
+    </header>
+    <form
+      id="myForm"
+      action="https://twasum.cdms.westernsydney.edu.au/twainfo/echo.php"
+      method="post"
+      onsubmit="return validateForm(this)"
+      novalidate
+    >
+      <section class="mainContainer">
+        <div class="outerBlock">
+          <div class="insideblock">
+            <h2>Club Details</h2>
+            <div class="input-field">
+              <label for="date">Order Date<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  id="date"
+                  name="date"
+                  class="largeBox"
+                  placeholder="eg: dd/mm/yyyy"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+
+                  <li>
+                    <span id="dateError" class="errorMessages"
+                      >The date must be valid and not greater than today's date:
+                      <span id="testYear"></span>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="ClubNo">Club No:<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  id="ClubNo"
+                  name="ClubNo1"
+                  class="smallBox"
+                  placeholder="eg: C14-565"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="clubError" class="errorMessages"
+                      >The club number should be entered as C # # - # # # (#
+                      Reprsenting alpha numeric value)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="clubName">Club Name<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="ClubName"
+                  id="clubName"
+                  class="largeBox"
+                  placeholder="Enter Club Name"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="CNameError" class="errorMessages"
+                      >The Club name should only contain characters, space and
+                      "-" (hyphens)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="fname">Contact First Name<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  class="largeBox"
+                  placeholder="Enter First Name"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="fNameError" class="errorMessages"
+                      >The First name or Last name should only contain
+                      characters, space and "-" (hyphens)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="lname">Contact Surname<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="lname"
+                  id="lname"
+                  class="largeBox"
+                  placeholder="Enter Surname"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="lNameError" class="errorMessages"
+                      >The First name or Last name should only contain
+                      characters, space and "-" (hyphens)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="contactPhone">Contact Phone<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="Contact-Phone"
+                  id="contactPhone"
+                  class="largeBox"
+                  placeholder="eg: 0434-456-789"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="CPhoneError" class="errorMessages"
+                      >The Phone number must be entered as eg: 04 # # - # # # -
+                      # # # (# representing digits. Characters are not to be
+                      entered)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="streetAddress">Postal Address<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="number"
+                  id="cNumber"
+                  class="smallBox"
+                  placeholder="Street #"
+                />&nbsp;
+                <input
+                  type="text"
+                  name="Street-Address"
+                  id="streetAddress"
+                  class="customBox"
+                  placeholder="Enter Street Address - eg: George Street"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span id="missingNumber" class="requiredError"
+                      >This is a required field</span
+                    >
+                  </li>
+                  <li>
+                    <span id="streetAddyError" class="errorMessages"
+                      >The Street Adress should only contain characters, space
+                      and "-" (hyphens)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="suburbCity">Suburb/City<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="Suburb-City"
+                  id="suburbCity"
+                  class="largeBox"
+                  placeholder="eg: Parramatta"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="suburbError" class="errorMessages"
+                      >The Suburb/City should only contain characters, space and
+                      "-" (hyphens)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="State">State<em>*</em></label>
+              <div class="errorMsgPos">
+                <select name="State" id="State" class="selectBox">
+                  <option value="" selected>Select State</option>
+                  <option value="NSW">NSW</option>
+                  <option value="NT ">NT</option>
+                  <option value="QLD">QLD</option>
+                  <option value="SA ">SA</option>
+                  <option value="TAS">TAS</option>
+                  <option value="VIC">VIC</option>
+                  <option value="WA ">WA</option>
+                </select>
+                <ul class="errorList">
+                  <li>
+                    <span id="stateError" class="requiredError"
+                      >This is a required field</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="Postcode">Postcode<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="Postcode"
+                  id="Postcode"
+                  class="largeBox"
+                  placeholder="eg: 2000"
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="postCodeError" class="errorMessages"
+                      >The post code must be a valid Australian post code and 4
+                      digits long</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <ul class="note">
+                <li>
+                  <i
+                    >Note: All fields with an ( <em>*</em> ) are mandatory
+                    fields to be filled in.<br /><br />Please double check that
+                    you have also entered the correct information and<br />
+                    that the spelling is correct.</i
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mainContainerOne">
+        <div class="orderDetails">
+          <div class="OD-headings">
+            <h2>Order Details</h2>
+          </div>
+          <h3>Badge Style</h3>
+          <div class="badgeTable">
+            <table>
+              <tr>
+                <th>Option</th>
+                <th>Style</th>
+                <th>Price</th>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td>Standard Badge</td>
+                <td>$7.00</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>Plastic Alligator Clip (with Safety Pin)</td>
+                <td>$8.00</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>Magnetic Badge Clip (no Pin)</td>
+                <td>$10.00</td>
+              </tr>
+            </table>
+          </div>
+          <div class="input-field">
+            <label for="Ofname">First Name<em>*</em></label>
+            <input
+              type="text"
+              name="groupOne"
+              id="Ofname"
+              class="customBox"
+              placeholder="Entry 1: Enter First Name"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="Olname">Surname<em>*</em></label>
+            <input
+              type="text"
+              name="groupOne"
+              id="Olname"
+              class="customBox groupOne"
+              placeholder="Enter Surname"
+              required
+            />
+          </div>
+          <div class="input-field">
+            <label for="ranking">Officer Ranking<em>*</em></label>
+            <select
+              name="groupOne"
+              id="ranking"
+              class="oDSelectBox groupOne"
+              required
+            >
+              <option value="" selected>Select Ranking</option>
+              <option value="Pre">Pre</option>
+              <option value="M">M</option>
+              <option value="Ex ">Ex</option>
+              <option value="Sgt">Sgt</option>
+              <option value="VP">VP</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <label for="bOption">Badge Option<em>*</em></label>
+            <select
+              name="groupOne"
+              id="bOption"
+              class="oDSelectBox press groupOne"
+              onchange="showPrice(this, 'price1')"
+              required
+            >
+              <option value="" selected>Select Option</option>
+              <option value="7.00">A</option>
+              <option value="8.00">B</option>
+              <option value="10.00">C</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <label for="price1">Price<em>*</em></label>
+            <input
+              type="text"
+              name="price"
+              id="price1"
+              class="smallBox postage groupOne"
+              placeholder="$"
+              readonly
+            />
+          </div>
+          <span id="fnameErrorOne" class="errorMessages"
+            ><ul>
+              <li id="addList">
+                You must complete the first entry to add additional entries
+              </li>
+              <li>
+                The First name and surname should only contain characters, space
+                and "-" (hyphens)
+              </li>
+              <li>
+                An option should be selected for both Officer Ranking and Badge
+                Option
+              </li>
+            </ul></span
+          >
+          <div class="aEntries">
+            <button
+              type="button"
+              class="notMand"
+              id="Btn"
+              onclick="displayAddEntries(this)"
+            >
+              add additional entries
+            </button>
+            <div id="additionInfo" class="input-field">
+              <ul>
+                <li>Tick the box to enable addtional entries.</li>
+                <li>Un-tick the box to delete entry.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="input-field" name="notMand" hidden>
+            <input type="checkbox" onclick="additionalEntries(this)" id="e1" />
+            <label for="fname1">First Name<em>*</em></label>
+            <input
+              type="text"
+              name="fname1"
+              id="fname1"
+              class="customBox firstGroup"
+              placeholder="Entry 2: Enter First Name"
+              disabled
+            />
+          </div>
+
+          <div class="input-field" name="notMand" hidden>
+            <label for="lname1">Surname<em>*</em></label>
+            <input
+              type="text"
+              name="lname1"
+              id="lname1"
+              class="customBox firstGroup"
+              placeholder="Enter Surname"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="ranking1">Officer Ranking<em>*</em></label>
+            <select
+              name="ranking1"
+              id="ranking1"
+              class="oDSelectBox firstGroup"
+              disabled
+            >
+              <option value="" selected>Select Ranking</option>
+              <option value="Pre">Pre</option>
+              <option value="M">M</option>
+              <option value="Ex ">Ex</option>
+              <option value="Sgt">Sgt</option>
+              <option value="VP">VP</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="bOption1">Badge Option<em>*</em></label>
+            <select
+              name="bOption1"
+              id="bOption1"
+              class="oDSelectBox firstGroup"
+              onchange="showPrice(this, 'price2')"
+              disabled
+            >
+              <option value="" selected>Select Option</option>
+              <option value="7.00">A</option>
+              <option value="8.00">B</option>
+              <option value="10.00">C</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="price2">Price<em>*</em></label>
+            <input
+              type="text"
+              name="price"
+              id="price2"
+              class="smallBox postage firstGroup"
+              placeholder="$"
+              readonly
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <input type="checkbox" onclick="additionalEntries(this)" id="e2" />
+            <label for="fname2">First Name<em>*</em></label>
+            <input
+              type="text"
+              name="fname2"
+              id="fname2"
+              class="customBox secondGroup"
+              placeholder="Entry 3: Enter First Name"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="lname2">Surname<em>*</em></label>
+            <input
+              type="text"
+              name="lname2"
+              id="lname2"
+              class="customBox secondGroup"
+              placeholder="Enter Surname"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="ranking2">Officer Ranking<em>*</em></label
+            ><br />
+            <select
+              name="ranking2"
+              id="ranking2"
+              class="oDSelectBox secondGroup"
+              disabled
+            >
+              <option value="" selected>Select Ranking</option>
+              <option value="Pre">Pre</option>
+              <option value="M">M</option>
+              <option value="Ex ">Ex</option>
+              <option value="Sgt">Sgt</option>
+              <option value="VP">VP</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="bOption2">Badge Option<em>*</em></label
+            ><br />
+            <select
+              name="bOption2"
+              id="bOption2"
+              class="oDSelectBox secondGroup"
+              onchange="showPrice(this, 'price3')"
+              disabled
+            >
+              <option value="" selected>Select Option</option>
+              <option value="7.00">A</option>
+              <option value="8.00">B</option>
+              <option value="10.00">C</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="price3">Price<em>*</em></label>
+            <input
+              type="text"
+              name="price"
+              id="price3"
+              class="smallBox postage secondGroup"
+              placeholder="$"
+              readonly
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <input type="checkbox" onclick="additionalEntries(this)" id="e3" />
+            <label for="fname3">First Name<em>*</em></label>
+            <input
+              type="text"
+              name="fname3"
+              id="fname3"
+              class="customBox thirdGroup"
+              placeholder="Entry 4: Enter First Name"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="lname3">Surname<em>*</em></label>
+            <input
+              type="text"
+              name="lname3"
+              id="lname3"
+              class="customBox thirdGroup"
+              placeholder="Enter Surname"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="ranking3">Officer Ranking<em>*</em></label>
+            <select
+              name="ranking3"
+              id="ranking3"
+              class="oDSelectBox thirdGroup"
+              disabled
+            >
+              <option value="" selected>Select Ranking</option>
+              <option value="Pre">Pre</option>
+              <option value="M">M</option>
+              <option value="Ex ">Ex</option>
+              <option value="Sgt">Sgt</option>
+              <option value="VP">VP</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="bOption3">Badge Option<em>*</em></label>
+            <select
+              name="bOption3"
+              id="bOption3"
+              class="oDSelectBox thirdGroup"
+              onchange="showPrice(this, 'price4')"
+              disabled
+            >
+              <option value="" selected>Select Option</option>
+              <option value="7.00">A</option>
+              <option value="8.00">B</option>
+              <option value="10.00">C</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="price4">Price<em>*</em></label>
+            <input
+              type="text"
+              name="price"
+              id="price4"
+              class="smallBox postage thirdGroup"
+              placeholder="$"
+              readonly
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <input type="checkbox" onclick="additionalEntries(this)" id="e4" />
+            <label for="fname4">First Name<em>*</em></label>
+            <input
+              type="text"
+              name="fname4"
+              id="fname4"
+              class="customBox forthGroup"
+              placeholder="Entry 5: Enter First Name"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="lname4">Surname<em>*</em></label>
+            <input
+              type="text"
+              name="lname4"
+              id="lname4"
+              class="customBox forthGroup"
+              placeholder="Enter Surname"
+              disabled
+            />
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="ranking4">Officer Ranking<em>*</em></label>
+            <select
+              name="ranking4"
+              id="ranking4"
+              class="oDSelectBox forthGroup"
+              disabled
+            >
+              <option value="" selected>Select Ranking</option>
+              <option value="Pre">Pre</option>
+              <option value="M">M</option>
+              <option value="Ex ">Ex</option>
+              <option value="Sgt">Sgt</option>
+              <option value="VP">VP</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="bOption4">Badge Option<em>*</em></label>
+            <select
+              name="bOption4"
+              id="bOption4"
+              class="oDSelectBox forthGroup"
+              onchange="showPrice(this, 'price5')"
+              disabled
+            >
+              <option value="" selected>Select Option</option>
+              <option value="7.00">A</option>
+              <option value="8.00">B</option>
+              <option value="10.00">C</option>
+            </select>
+          </div>
+          <div class="input-field" name="notMand" hidden>
+            <label for="price5">Price<em>*</em></label>
+            <input
+              type="text"
+              name="price"
+              id="price5"
+              class="smallBox postage forthGroup"
+              placeholder="$"
+              readonly
+            />
+          </div>
+          <span id="fnameError2" class="errorMessages"
+            ><ul>
+              <li>
+                The First name and surname should only contain characters, space
+                and "-" (hyphens)
+              </li>
+              <li>
+                An option should be selected for both Officer Ranking and Badge
+                Option
+              </li>
+            </ul></span
+          >
+          <button
+            type="button"
+            name="notMand"
+            id="myBtn"
+            onclick="enableButton(this)"
+            disabled
+            hidden
+          >
+            Calculate total
+          </button>
+        </div>
+        <div class="pWrapper">
+          <div class="paymentMethod">
+            <div class="pMethodCon" id="pMhidden">
+              <div class="pMHeading">
+                <h2>Payment Method:<em>*</em></h2>
+              </div>
+              <div>
+                <label for="creditCard" name="pMethod">Credit Card</label>
+                <input
+                  type="checkbox"
+                  name="pMethod"
+                  onclick="enableButton(this)"
+                  id="creditCard"
+                  disabled
+                />
+              </div>
+              <div>
+                <label for="Pay-Pal" name="pMethod">Pay Pal</label>
+                <input
+                  type="checkbox"
+                  name="pMethod"
+                  id="Pay-Pal"
+                  onclick="enableButton(this)"
+                  disabled
+                />
+              </div>
+              <div>
+                <label for="moneyOrder" name="pMethod">Money order</label>
+                <input
+                  type="checkbox"
+                  name="pMethod"
+                  id="moneyOrder"
+                  onclick="enableButton(this)"
+                  disabled
+                />
+              </div>
+              <div>
+                <label for="cheque" name="pMethod">Cheque</label>
+                <input
+                  type="checkbox"
+                  name="pMethod"
+                  id="cheque"
+                  onclick="enableButton(this)"
+                  disabled
+                />
+              </div>
+              <div class="input-field">
+                <span id="pMUnchecked" class="errorMessages"
+                  >One of the above options must be chosen</span
+                >
+              </div>
+
+              (<i>Check boxes will be unchecked if the price has been chenged</i
+              >)
+            </div>
+            <div class="calculations">
+              <div class="internalWrap">
+                <div class="input-field">
+                  <label class="totale" for="subTotal"><b>Sub Total</b></label
+                  ><input
+                    class="customBox1"
+                    type="text"
+                    name="subTotal"
+                    id="subTotal"
+                    readonly
+                  />
+                </div>
+                <div class="input-field">
+                  <label class="totale" for="Postage"
+                    ><i>($4 up to 4 badges, $8 for 5 and above)</i>
+                    <b>Postage</b></label
+                  ><input
+                    class="customBox1"
+                    type="text"
+                    name="Postage"
+                    id="Postage"
+                    readonly
+                  />
+                </div>
+                <div class="input-field">
+                  <label class="totale" for="cCFee"
+                    ><span id="txthighlight"
+                      ><i>(2.5% of Subtotal+Postage)</i></span
+                    >
+                    <b>Credit Card Fee</b></label
+                  ><input
+                    class="customBox1"
+                    type="text"
+                    name="cCFee"
+                    id="cCFee"
+                    readonly
+                  />
+                </div>
+
+                <div class="input-field">
+                  <label class="totale" for="gtotal"><b>Total</b></label
+                  ><input
+                    class="customBox1"
+                    type="text"
+                    name="gtotal"
+                    id="gtotal"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lastSection">
+        <div class="lastContainer">
+          <fieldset id="disabled">
+            <h4>Payment Details</h4>
+            <div class="input-field">
+              <input
+                type="radio"
+                id="Visa"
+                name="cardType"
+                value="v"
+              />&nbsp;&nbsp;<label for="Visa">Visa</label>
+              <input
+                type="radio"
+                id="masterCard"
+                name="cardType"
+                value="m"
+                required
+              />&nbsp;&nbsp;<label for="masterCard">Master Card</label>
+              <span id="radioB" class="requiredError"
+                >An option mus be chosen</span
+              >
+            </div>
+            <div class="input-field">
+              <label for="creditCard1">Credit Card Number<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  class="largeBox"
+                  type="text"
+                  name="creditCard1"
+                  id="creditCard1"
+                  placeholder="eg: 1234 "
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="creditCard1Error" class="errorMessages"
+                      >Credit card detials must be 16 digits long (a space after
+                      4 digits is optional)</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="CCV">CCV#<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  type="text"
+                  name="CCV"
+                  id="CCV"
+                  class="smallBox"
+                  placeholder="eg: 123 "
+                  required
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="CCVError" class="errorMessages"
+                      >CCV must only contain 3 digits</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="input-field">
+              <p>
+                <i
+                  >(Last three digits at the back of your card. Your payment
+                  cannot be processed without the CVV#)</i
+                >
+              </p>
+            </div>
+            <div class="input-field">
+              <label for="cardHoldersName">Card Holders Name<em>*</em></label>
+              <div class="errorMsgPos">
+                <input
+                  class="largeBox"
+                  type="text"
+                  name="chn"
+                  id="cardHoldersName"
+                  placeholder="Enter Card Holder's Name"
+                />
+                <ul class="errorList">
+                  <li>
+                    <span class="requiredError">This is a required field</span>
+                  </li>
+                  <li>
+                    <span id="chnError" class="errorMessages"
+                      >Must contain only characters and space</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="input-field">
+              <label for="amount">Authorised Amount<em>*</em></label>
+              <input
+                class="largeBox"
+                type="text"
+                name="amount"
+                id="amount"
+                readonly
+              />
+            </div>
+
+            <div class="input-field">
+              <label for="Expiry">Expiry<em>*</em></label>
+              <input
+                class="smallBox"
+                type="text"
+                name="Expiry"
+                id="Expiry"
+                onblur="return valMonthYr(this)"
+                placeholder="eg: MM/YY"
+              />
+              <ul class="errorList">
+                <li>
+                  <span class="requiredError">This is a required field</span>
+                </li>
+                <li>
+                  <span id="expyError" class="errorMessages"
+                    >Must be 4 digits separated by a / and not a past date. eg:
+                    mm/yy
+                  </span>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div class="input-field">
+              <p>
+                <i
+                  >(Month should be entered from 01-12 & year greater or equal
+                  than the last 2 digits of the current year (<span
+                    id="currentYear"
+                  ></span
+                  >)</i
+                >
+              </p>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+      <div class="submitButton">
+        <input type="submit" value="Submit Form" />
+      </div>
+    </form>
+  </body>
+</html>

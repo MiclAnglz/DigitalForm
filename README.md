@@ -1,4 +1,5 @@
 # DigitalForm
 TWA Minor Project - HTML, CSS, Vanilla Javascript
-<img width="303" alt="image" src="https://user-images.githubusercontent.com/103421610/201447040-cb09e999-8061-4b9b-9f8d-03bda68b823a.png">
+<img width="294" alt="image" src="https://user-images.githubusercontent.com/103421610/201447139-4d72fd60-068c-4cf3-9ecc-5e6260d3dc8c.png">
+
 

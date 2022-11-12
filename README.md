@@ -2,7 +2,7 @@
 
 Technologies for Web Applications - Minor Project
 
-Task: Create a digital version for the form below. 
+<strong>Task:</strong> Create a digital version for the form below. 
 
 A more detailed description of the task can be found in the "projectBrief" folder.
 

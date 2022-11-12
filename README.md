@@ -1,6 +1,6 @@
 # Digital Form <h4>(First Project using HTML, CSS, Javascript)</h4> 
 
-<Strong>Technologies for Web Applications - Minor Project</strong>
+Technologies for Web Applications - Minor Project
 
 <strong>Task:</strong> Create a digital version for the form below. 
 

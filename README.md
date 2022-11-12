@@ -1,5 +1,5 @@
 # Digital Form 
-(First Project using HTML, CSS, Javascript)
+<h3>First Project using HTML, CSS, Javascript)</h3>
 
 Technologies for Web Applications - Minor Project
 

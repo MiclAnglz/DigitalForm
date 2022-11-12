@@ -1,4 +1,4 @@
-# DigitalForm
+# Digital Form (First Project using HTML, CSS, Javascript)
 Technologies for Web Applications - Minor Project
 
 Task: Create a digital version for the form below. 
